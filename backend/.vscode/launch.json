@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Run Server",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "runserver",
+                "8050"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}/booking/manage.py"
+        },
+        {
+            "name": "Run Tests",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "test"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}/booking/manage.py"
+        }
+    ]
+}
