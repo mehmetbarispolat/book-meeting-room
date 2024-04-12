@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from rest_framework import generics
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 
 from .models import Room, Booking
 from .serializers import RoomSerializer, BookingSerializer, UserSerializer
@@ -44,3 +44,21 @@ class BookRoom(APIView):
             serializer.save()
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
+
+class AddRoomView(APIView):
+    permission_classes = [IsAdminUser]
+
+    def post(self, request):
+        serializer = RoomSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)
+        return Response(serializer.errors, status=400)
+
+class ListRoomsView(APIView):
+    permission_classes = [IsAdminUser]
+
+    def get(self, request):
+        rooms = Room.objects.all()
+        serializer = RoomSerializer(rooms, many=True)
+        return Response(serializer.data)
