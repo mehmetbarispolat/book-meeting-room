@@ -1,0 +1,29 @@
+@import "react-datepicker/dist/react-datepicker.css";
+
+
+body {
+  font-family: Arial, sans-serif;
+}
+
+form {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+}
+
+input, button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  display: block;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+}
